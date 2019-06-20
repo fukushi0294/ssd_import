@@ -4,7 +4,11 @@
             "name": "Win32",
             "includePath": [
                 "${workspaceFolder}/**",
-                "C:\\Users\\kfukush\\AppData\\Local\\Continuum\\anaconda3\\envs\\TF\\Lib\\site-packages\\tensorflow\\include"
+                "C:\\Users\\kfukush\\AppData\\Local\\Continuum\\anaconda3\\envs\\TF\\Lib\\site-packages\\tensorflow\\include",
+                "C:/Users/kfukush/AppData/Local/Continuum/anaconda3/envs/TF/Lib/site-packages/tensorflow/include/external/protobuf_archive/src",
+                "C:/Users/kfukush/AppData/Local/Continuum/anaconda3/envs/TF/Lib/site-packages/tensorflow/include/external/eigen_archive",
+                "C:/Users/kfukush/AppData/Local/Continuum/anaconda3/envs/TF/Lib/site-packages/tensorflow/include/external/com_google_absl",
+                "C:/Users/kfukush/AppData/Local/Continuum/anaconda3/envs/TF/Lib/site-packages/tensorflow/include/external/com_google_absl"
             ],
             "defines": [
                 "_DEBUG",
@@ -12,7 +16,7 @@
                 "_UNICODE"
             ],
             "windowsSdkVersion": "10.0.17134.0",
-            "compilerPath": "C:/Program Files (x86)/Microsoft Visual Studio/2017/Community/VC/Tools/MSVC/14.15.26726/bin/Hostx64/x64/cl.exe",
+            "compilerPath": "C:\\Program Files\\x86_64-8.1.0-release-posix-seh-rt_v6-rev0\\mingw64\\bin\\g++.exe",
             "cStandard": "c11",
             "cppStandard": "c++17",
             "intelliSenseMode": "msvc-x64"
