@@ -1,0 +1,3 @@
+[submodule "SSD-Tensorflow"]
+	path = SSD-Tensorflow
+	url = https://github.com/fukushi0294/SSD-Tensorflow
