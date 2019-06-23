@@ -31,6 +31,7 @@ Status LoadGraph(string graph_filename,
 Tensor CreateTensorFromImage(string image_filename)
 {
 
+
 }
 
 
