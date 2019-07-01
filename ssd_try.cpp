@@ -28,8 +28,41 @@ Status LoadGraph(string graph_filename,
     return Status::OK();
 }
 
-Tensor CreateTensorFromImage(string image_filename)
+static Status ReadEntireFile(tensorflow::Env* env, const string& filename,
+                             Tensor* output) {
+  tensorflow::uint64 file_size = 0;
+  TF_RETURN_IF_ERROR(env->GetFileSize(filename, &file_size));
+
+  string contents;
+  contents.resize(file_size);
+
+  std::unique_ptr<tensorflow::RandomAccessFile> file;
+  TF_RETURN_IF_ERROR(env->NewRandomAccessFile(filename, &file));
+
+  tensorflow::StringPiece data;
+  TF_RETURN_IF_ERROR(file->Read(0, file_size, &data, &(contents)[0]));
+  if (data.size() != file_size) {
+    return tensorflow::errors::DataLoss("Truncated read of '", filename,
+                                        "' expected ", file_size, " got ",
+                                        data.size());
+  }
+  output->scalar<string>()() = string(data);
+  return Status::OK();
+}
+
+
+Tensor CreateTensorFromImage(const string image_filename)
 {
+    auto root = tensorflow::Scope::NewRootScope();
+    string input_name = "file_reader";
+    string output_name = "normalized";
+    Tensor input(tensorflow::DT_STRING, tensorflow::TensorShape());
+
+    TF_RETURN_IF_ERROR(ReadEntireFile(tensorflow::Env::Default(), file_name, &input));
+    auto file_reader =
+      Placeholder(root.WithOpName("input"), tensorflow::DataType::DT_STRING);
+    
+
 
 
 }
